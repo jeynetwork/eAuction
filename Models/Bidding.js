@@ -32,11 +32,11 @@ const Biddings = mongoose.model(
 
 function validateBiddings(biddings) {
   const schema = {
-    bidder: Joi.String().required(),
-    bidReference: Joi.String().minlength(3).maxlength(25).required(),
-    auctionId: Joi.String().required(),
-    amount: Joi.Number().required(),
-    bidStatus: Joi.String().required(),
+    bidder: Joi.string().required(),
+    bidReference: Joi.string().min(3).max(25).required(),
+    auctionId: Joi.string().required(),
+    amount: Joi.number().required(),
+    bidStatus: Joi.string(),
   };
   return Joi.validate(biddings, schema);
 }
