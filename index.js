@@ -5,6 +5,7 @@ const app = express();
 const Users = require("./Routes/Users");
 const Auctions = require("./Routes/Auctions");
 const Bidding = require("./Routes/Biddings");
+const Payment = require("./Routes/Payments");
 
 mongoose
   .connect("mongodb://localhost/Auctions")
@@ -14,6 +15,7 @@ mongoose
 app.use("/eAuction/users", Users);
 app.use("/eAuction/auctions", Auctions);
 app.use("/eAuction/biddings", Bidding);
+app.use("/eAuction/payments", Payment);
 app.get("/", (req, res) => {
   res.send("hello worlds");
 });
