@@ -30,11 +30,11 @@ const Auctions = mongoose.model(
       required: true,
     },
     auctionStart: {
-      type: TimeRanges,
+      type: Date,
       required: true,
     },
-    auctionPeriod: {
-      type: Number,
+    auctionEnd: {
+      type: Date,
       required: true,
     },
     auctionDescription: {
@@ -46,14 +46,14 @@ const Auctions = mongoose.model(
 );
 function validateAuction(auction) {
   const schema = {
-    seller: Joi.String().minlength(3).maxlength(25).required(),
-    itemName: Joi.String().minlength(3).maxlength(25).required(),
-    image: Joi.String().required(),
-    quantity: Joi.Number().default(1).required(),
-    minPrice: Joi.Number().required(),
-    auctionStart: Joi.TimeRanges().required(),
-    auctionPeriod: Joi.Number().required(),
-    auctionDescription: Joi.String().minlength(5).maxlength(100).required(),
+    seller: Joi.string().min(3).max(25).required(),
+    itemName: Joi.string().min(3).max(25).required(),
+    image: Joi.string().required(),
+    quantity: Joi.number().default(1).required(),
+    minPrice: Joi.number().required(),
+    auctionStart: Joi.date().required(),
+    auctionEnd: Joi.date().required(),
+    auctionDescription: Joi.string().min(5).max(100).required(),
   };
   return Joi.validate(auction, schema);
 }
