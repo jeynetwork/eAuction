@@ -3,6 +3,7 @@ const Router = express.Router();
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 
+const auth = require("../middleware/auth");
 const { Users, validateUser } = require("../Models/User");
 const { Auctions, validateAuction } = require("../Models/Auction");
 const { Biddings, validateBiddings } = require("../Models/Bidding");
@@ -10,12 +11,12 @@ const { Biddings, validateBiddings } = require("../Models/Bidding");
 Router.use(bodyParser.urlencoded({ extended: true }));
 Router.use(bodyParser.json());
 
-Router.get("/", async (req, res) => {
+Router.get("/", auth, async (req, res) => {
   const biddings = await Biddings.find().select("-_id");
   res.send(biddings);
 });
 
-Router.post("/", async (req, res) => {
+Router.post("/", auth, async (req, res) => {
   const { error } = validateBiddings(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   const findBidder = await Users.findById(req.body.bidder);
@@ -36,7 +37,7 @@ Router.post("/", async (req, res) => {
   const savedBid = await newBidding.save();
   res.send(savedBid);
 });
-Router.put("/:id", async (req, res) => {
+Router.put("/:id", auth, async (req, res) => {
   let findBidding = await Biddings.findById(req.params.id);
   if (!findBidding) return res.status(400).send("Invalid bidding");
 
@@ -57,7 +58,7 @@ Router.put("/:id", async (req, res) => {
   await findBidding.save();
   res.send(findBidding);
 });
-Router.delete("/:id", async (req, res) => {
+Router.delete("/:id", auth, async (req, res) => {
   const findBidding = await Biddings.findById(req.params.id);
   if (!findBidding) return res.status(400).send("Invalid bidding");
   await findBidding.delete();

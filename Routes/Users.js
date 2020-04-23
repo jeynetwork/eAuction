@@ -3,6 +3,7 @@ const Router = express.Router();
 const _ = require("lodash");
 const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
+const auth = require("../middleware/auth");
 
 const { Users, validateUser } = require("../Models/User");
 
@@ -43,7 +44,7 @@ Router.post("/", async (req, res) => {
     }
   }
 });
-Router.put("/:id", async (req, res) => {
+Router.put("/:id", auth, async (req, res) => {
   let findById = await Users.findById(req.params.id);
   if (!findById) return res.status(400).send("this user does not exist");
 
@@ -64,7 +65,7 @@ Router.put("/:id", async (req, res) => {
   await findById.save();
   res.send(findById);
 });
-Router.delete("/:id", async (req, res) => {
+Router.delete("/:id", auth, async (req, res) => {
   let findById = await Users.findById(req.params.id);
   if (!findById) return res.status(400).send("this user does not exist");
   await findById.delete();
