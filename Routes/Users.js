@@ -6,6 +6,9 @@ const bodyParser = require("body-parser");
 const auth = require("../middleware/auth");
 
 const { Users, validateUser } = require("../Models/User");
+const admin = require("../middleware/isAdmin");
+const seller = require("../middleware/isSeller");
+const bidder = require("../middleware/isBidder");
 
 Router.use(bodyParser.urlencoded({ extended: true }));
 Router.use(bodyParser.json());
@@ -15,7 +18,7 @@ Router.get("/", async (req, res) => {
   res.send(users);
 });
 
-Router.post("/", async (req, res) => {
+Router.post("/", admin, async (req, res) => {
   const { error } = validateUser(req.body);
   if (error) {
     return res.status(400).send(error.message);
@@ -44,7 +47,7 @@ Router.post("/", async (req, res) => {
     }
   }
 });
-Router.put("/:id", auth, async (req, res) => {
+Router.put("/:id", [auth, admin], async (req, res) => {
   let findById = await Users.findById(req.params.id);
   if (!findById) return res.status(400).send("this user does not exist");
 
@@ -65,7 +68,7 @@ Router.put("/:id", auth, async (req, res) => {
   await findById.save();
   res.send(findById);
 });
-Router.delete("/:id", auth, async (req, res) => {
+Router.delete("/:id", [auth, admin], async (req, res) => {
   let findById = await Users.findById(req.params.id);
   if (!findById) return res.status(400).send("this user does not exist");
   await findById.delete();

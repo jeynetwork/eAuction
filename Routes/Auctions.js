@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const { Auctions, validateAuction } = require("../Models/Auction");
 const { Users, validateUser } = require("../Models/User");
 const auth = require("../middleware/auth");
+const admin = require("../middleware/isAdmin");
+const seller = require("../middleware/isSeller");
 
 Router.use(bodyParser.urlencoded({ extended: true }));
 Router.use(bodyParser.json());
@@ -14,7 +16,7 @@ Router.get("/", async (req, res) => {
   res.send(auction);
 });
 
-Router.post("/", auth, async (req, res) => {
+Router.post("/", [auth, seller], async (req, res) => {
   const { error } = validateAuction(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -40,7 +42,7 @@ Router.post("/", auth, async (req, res) => {
   const savedAuction = await auction.save();
   res.send(savedAuction);
 });
-Router.put("/:id", auth, async (req, res) => {
+Router.put("/:id", [auth, seller], async (req, res) => {
   let findAuction = await Auctions.findById(req.params.id);
   if (!findAuction) return res.status(400).send("Invalid auction");
   const { error } = validateAuction(req.body);
@@ -62,7 +64,7 @@ Router.put("/:id", auth, async (req, res) => {
   await findAuction.save();
   res.send(findAuction);
 });
-Router.delete("/:id", auth, async (req, res) => {
+Router.delete("/:id", [auth, seller || admin], async (req, res) => {
   let findAuction = await Auctions.findById(req.params.id);
   if (!findAuction) return res.status(400).send("Invalid auction");
   await findAuction.delete();

@@ -6,15 +6,19 @@ const auth = require("../middleware/auth");
 const { Payments, validatePayments } = require("../Models/Payment");
 const { Biddings, validateBiddings } = require("../Models/Bidding");
 
+const admin = require("../middleware/isAdmin");
+const seller = require("../middleware/isSeller");
+const bidder = require("../middleware/isBidder");
+
 Router.use(bodyParser.urlencoded({ extended: true }));
 Router.use(bodyParser.json());
 
-Router.get("/", auth, async (req, res) => {
+Router.get("/", [auth, bidder || seller], async (req, res) => {
   const payments = await Payments.find();
   res.send(payments);
 });
 
-Router.post("/", auth, async (req, res) => {
+Router.post("/", [auth, bidder || seller], async (req, res) => {
   const { error } = validatePayments(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   const newPayment = new Payments(
