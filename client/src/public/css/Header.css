@@ -1,0 +1,30 @@
+.Header {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: whitesmoke;
+  color: navy;
+  box-shadow: 0 0 2px gray;
+  height: 25px;
+}
+.Header h3 {
+  margin-left: 5%;
+  font-weight: bolder;
+  margin-top: -1px;
+  float: left;
+}
+.Header ul {
+  margin-right: 5%;
+  float: right;
+  margin-top: 0px;
+}
+.Header ul li {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.Header ul li i {
+  position: relative;
+  top: 1px;
+  padding-right: 5px;
+}
