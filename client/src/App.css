@@ -10,3 +10,9 @@ body {
   position: absolute;
   font-family: "Jost", sans-serif !important;
 }
+.App{
+  width: 90%!important;
+  height: 90%;
+  margin-left: 5%;
+  position: absolute;
+}
