@@ -7,7 +7,6 @@
 }
 .loginForm,.calendar{
     width: 100%;
-    height: 35%;
     padding:15px;
     margin-top: 10px;
     border-radius: 3px;
@@ -87,4 +86,7 @@
 }
 .rightSideDiv table tbody tr td, .rightSideDiv table thead tr th{
     text-align: left;
+}
+.rightSideDiv h5{
+    width: 100%;
 }

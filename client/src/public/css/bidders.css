@@ -1,0 +1,56 @@
+.singleBidder{
+    width: 100%;
+    height: 200px;
+    border-radius: 2px;
+    float: left;
+    box-shadow: 0 0 2px gray;
+}
+.bidderImage{
+    width: 25%;
+    height: 100%;
+    background: white;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    float: left;
+}
+.bidderDetails{
+    float: left;
+    width: 70%;
+    height: 95%;
+    padding-top: 10px;
+    padding-left: 5px;
+    margin-left: 10px;
+}
+.bidderDetails h5{
+    font-size: 15px;
+    font-weight: bold!important;
+    color: navy;
+    border-left:solid medium navy!important;
+}
+.bidderDetails h5 i{
+float: right;
+}
+.bidderDetails .buttons{
+    margin-top: 15px;
+}
+.bidderDetails .buttons button{
+    padding:10px;
+    border-radius: 100px;
+    border:none;
+    color: navy;
+    box-shadow: 0 0 2px navy;
+    margin-left: 10px;
+}
+.bidderDetails .buttons button i{
+    padding-right: 10px;
+    color: navy;
+}
+.bidderDetails .buttons button:first-child{
+    margin-left: 0px;
+    background: navy;
+    color:white!important;
+    box-shadow: 0 0 0px navy;
+}
+.bidderDetails .buttons button:first-child i{
+    color:white;
+}

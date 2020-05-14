@@ -16,12 +16,12 @@ function Header({ children }) {
             </li>
           </Link>
 
-          <Link to="/bidders">
+          {/* <Link to="/bidders">
             <li>
               <i className="ion-ios-keypad"></i>
               Bidders
             </li>
-          </Link>
+          </Link> */}
 
           <Link to="/sellers">
             <li>
