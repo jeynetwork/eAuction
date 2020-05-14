@@ -66,7 +66,7 @@ class Calendar extends Component {
       });
 
     return (
-        <div>
+        <div className="calendar">
                         <table cellSpacing="0" className="calendar-day">
             <thead>
               <tr>{weekdayshortname}</tr>

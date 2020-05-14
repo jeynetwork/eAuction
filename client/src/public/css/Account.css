@@ -1,0 +1,134 @@
+.accountDetails{
+    width: 100%;
+    padding:15px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background: whitesmoke;
+}
+.holderImage{
+    width: 100%;
+    height: 100px;
+    /* background-color: white; */
+}
+.buttons{
+    margin-top:10px;
+}
+.buttons button{
+    padding:10px;
+    border:none;
+    border-radius: 100px;
+    background: rgba(121, 121, 156, 1);
+    color:white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.buttons button i{
+    padding-right: 10px;
+}
+.holderImage .img{
+    width: 100%;
+    height: 30%;
+    /* border-bottom: solid thin #CCC; */
+}
+.holderImage div p{
+    font-size: 14px;
+    margin-top: 0px;
+}
+.holderImage .img{
+    font-style: italic;
+}
+.holderImage .img img{
+    width: 40px;
+    height: 40px;
+    background: gray;
+}
+.midAuctions{
+    width: 40%;
+    float: left;
+    background: whitesmoke;
+    padding:10px;
+    margin-left: 35px;
+    margin-top: 15px;
+}
+.midAuctions table{
+    width: 100%;
+}
+.midAuctions table tbody tr td{
+    text-align: center;
+}
+.midAuctions table tbody tr td button{
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0 0 0px;
+    background: navy;
+    color: white;
+}
+.midAuctions table tbody tr td button i{
+    padding-right: 5px;
+}
+
+.midAuctions .filterDiv{
+    width: 100%;
+    /* height: 20px; */
+    /* background: red; */
+    float: left;
+    
+}
+.midAuctions h5{
+    margin-top: 0px;
+    font-weight: normal;
+    padding: 5px;
+    border-left: solid medium gray;
+    border-radius: 2px;
+    float: left;
+}
+.midAuctions .filterDiv form{
+    float: right;
+}
+.midAuctions .filterDiv form select{
+    padding:7px;
+    padding-left: 20px;
+    padding-right: 40px;
+    text-align: left;
+    border:none;
+    box-shadow: 0 0 2px gray;
+    border-radius: 2px;
+}
+.midAuctions .filterDiv form i{
+    padding-left: 10px;
+    padding-right: 5px;
+    color: navy;
+}
+.newAuctionForm{
+    background: whitesmoke;
+    padding:10px;
+    margin-top: 15px;
+    width: 26.5%;
+    float: left;
+    margin-left: 10px;
+}
+.newAuctionForm h5{
+    margin-top: 0px;
+    font-weight: normal;
+    padding: 5px;
+    border-left: solid medium gray;
+    border-radius: 2px;
+    width: 100%;
+}
+.newAuctionForm form label, .newAuctionForm form input{
+    display: block;
+}
+.newAuctionForm form label{
+    margin-top: 5px;
+}
+.newAuctionForm form{
+    width: 96.7%;
+}
+.newAuctionForm form input{
+    padding:7px;
+    background: none;
+    border: none;
+    border-radius: 2px;
+    border-bottom: solid thin #CCC;
+    width: 100%;
+}

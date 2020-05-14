@@ -16,10 +16,7 @@ class SideDiv extends Component {
                         </button>
                     </form>
                 </div>
-                <div className="calendar" >
-                    <h5>My calendar</h5>
-                    <Calendar/>
-                </div>
+                <Calendar/>
             </div>
         )
     }
