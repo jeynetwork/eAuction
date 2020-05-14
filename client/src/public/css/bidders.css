@@ -2,8 +2,15 @@
     width: 100%;
     height: 200px;
     border-radius: 2px;
-    float: left;
     box-shadow: 0 0 2px gray;
+    float: left;
+}
+.filterDiv{
+    width: 100%;
+    height: 40px;
+}
+.filterDiv h5{
+    width: auto;
 }
 .bidderImage{
     width: 25%;
