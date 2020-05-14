@@ -3,14 +3,15 @@
     padding:5px;
     height: 100%;
     float: left;
-    position: absolute;
+    /* position: absolute; */
 }
 .loginForm,.calendar{
     width: 100%;
     height: 35%;
-    padding:5px;
+    padding:15px;
     margin-top: 10px;
     border-radius: 3px;
+    background: whitesmoke;
 }
 .sideDiv h5{
     border-left: solid medium gray;
@@ -68,5 +69,22 @@
 .calendar-day{
     text-align: center;
 }
-.empty{
+.currentDay{
+    background: red;
+}
+.rightSideDiv{
+    width: 69.5%;
+    float: right!important;
+    margin-left: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    /* position: absolute; */
+    background: whitesmoke;
+    border-radius: 2px;
+}
+.rightSideDiv table{
+    width: 100%;
+}
+.rightSideDiv table tbody tr td, .rightSideDiv table thead tr th{
+    text-align: left;
 }

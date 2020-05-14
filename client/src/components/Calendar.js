@@ -14,6 +14,9 @@ class Calendar extends Component {
         let firstDay=moment(dateObject).startOf("month").format("d");
         return firstDay;
     }
+    currentDay = ()=>{
+        return this.state.dateObject.format("D");
+    }
    render(){
 
     let weekdayshortname = this.weekdayshort.map(day => {
@@ -33,11 +36,12 @@ class Calendar extends Component {
        
        let daysInMonth = [];
        for(let d=1;d<=moment(this.state.dateObject).daysInMonth();d++){
-           daysInMonth.push(
-           <td key={d} className="calendar-day" >
-               {d}
-           </td>
-           )
+        let currentDay = d == this.currentDay() ? "today" : "";   
+        daysInMonth.push(  
+            <td key={d} className={`calendar-day ${currentDay}`}>   
+                {d} 
+            </td>
+        )
        }
 
        let totalSlots = [...blank, ...daysInMonth];

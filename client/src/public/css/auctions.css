@@ -1,0 +1,51 @@
+.rightSideDiv table thead th{
+    background:rgba(121, 121, 156, 1);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+table tbody tr td button{
+    padding:8px;
+    border-radius: 20px;
+    border: none;
+    background:white;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow:  0 0 2px navy;
+}
+table tbody tr td{
+padding-top: 5px!important;
+padding-bottom: 5px;
+}
+table tbody tr td img{
+    background-color: gray;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
+.rightSideDiv h5{
+    margin-top: 0px;
+    font-weight: normal;
+    padding: 5px;
+    border-left: solid medium gray;
+    border-radius: 2px;
+    float: left;
+}
+.rightSideDiv .filterDiv form{
+    float: right;
+}
+.rightSideDiv .filterDiv form select{
+    padding:7px;
+    padding-left: 20px;
+    padding-right: 40px;
+    text-align: left;
+    border:none;
+    box-shadow: 0 0 2px gray;
+    border-radius: 2px;
+}
+.rightSideDiv .filterDiv form i{
+    padding-left: 10px;
+    padding-right: 5px;
+    color: navy;
+}
