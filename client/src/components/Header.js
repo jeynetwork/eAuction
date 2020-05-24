@@ -7,9 +7,13 @@ function Header({ children }) {
   return (
     <div>
       <div className="Header">
-        <h3>eAuction</h3>
+        <h3>
+          <Link to="/auctions" >
+          eAuction
+          </Link>
+        </h3>
         <ul>
-          <Link to="/auctions" exact>
+          <Link to="/auctions">
             <li>
               <i className="ion-clipboard"></i>
               auctions

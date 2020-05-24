@@ -3,6 +3,7 @@ import Calendar from "./Calendar";
 import { calendarFormat } from 'moment';
 import "../public/css/side.css";
 import "../public/css/Account.css";
+import img from "../public/img/abc.jpg";
 
 function AccountDetails() {
     return (
@@ -11,10 +12,10 @@ function AccountDetails() {
                 <h5>Account holder</h5>
                 <div className="holderImage" >
                     <div className="img" >
-                        <img src="" alt="himg"/>
-                        &emsp;<span>jeymwira@gmail.com</span>
+                        <img src={img} alt="himg"/>
                     </div>
                     <div>
+                        <p>email : jeymwira@gmail.com</p>
                         <p>contact : 070 65 63347</p>
                         <p>Address : Kampala/Uganda</p>
                     </div>

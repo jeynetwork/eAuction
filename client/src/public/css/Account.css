@@ -5,9 +5,15 @@
     border-radius: 3px;
     background: whitesmoke;
 }
+img{
+    object-fit: cover;
+    background: #CCC!important;
+    padding: 5px;
+    border-radius: 3px;
+}
 .holderImage{
     width: 100%;
-    height: 100px;
+    height: auto;
     /* background-color: white; */
 }
 .buttons{
@@ -16,7 +22,7 @@
 .buttons button{
     padding:10px;
     border:none;
-    border-radius: 100px;
+    border-radius: 5px;
     background: rgba(121, 121, 156, 1);
     color:white;
     padding-left: 15px;
@@ -27,7 +33,7 @@
 }
 .holderImage .img{
     width: 100%;
-    height: 30%;
+    height: auto;
     /* border-bottom: solid thin #CCC; */
 }
 .holderImage div p{
@@ -38,8 +44,8 @@
     font-style: italic;
 }
 .holderImage .img img{
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 75px;
     background: gray;
 }
 .midAuctions{
@@ -52,9 +58,13 @@
 }
 .midAuctions table{
     width: 100%;
+    padding-top: 10px;
+}
+.midAuctions table thead tr th{
+    text-align: left;    
 }
 .midAuctions table tbody tr td{
-    text-align: center;
+    text-align: left;
 }
 .midAuctions table tbody tr td button{
     padding-left: 15px;
@@ -131,4 +141,8 @@
     border-radius: 2px;
     border-bottom: solid thin #CCC;
     width: 100%;
+}
+.danger{
+    background: red!important;
+    margin-left: 5px;
 }

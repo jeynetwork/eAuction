@@ -13,6 +13,9 @@
   margin-top: -1px;
   float: left;
 }
+a{
+  text-decoration: none;
+}
 .Header ul {
   margin-right: 5%;
   float: right;

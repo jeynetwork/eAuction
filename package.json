@@ -25,6 +25,9 @@
     "lodash": "^4.17.15",
     "mongoose": "^5.9.9",
     "nodemon": "^2.0.3",
-    "reactstrap": "^8.4.1"
+    "react-redux": "^7.2.0",
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }

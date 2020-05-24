@@ -15,10 +15,14 @@ import Bidders from "./components/Bidders";
 import Account from "./components/Account";
 import Auctions from "./App";
 import { createBrowserHistory } from "history";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const history = createBrowserHistory();
 
 ReactDOM.render(
+
+  <Provider store={store}>
   <Router history={history}>
     <Switch>
       <Route
@@ -32,7 +36,6 @@ ReactDOM.render(
       />
 
       <Route
-        exact
         path="/auctions"
         render={() => (
           <Header>
@@ -68,7 +71,8 @@ ReactDOM.render(
         )}
       />
     </Switch>
-  </Router>,
+  </Router>
+  </Provider>,
   document.getElementById("root")
 );
 

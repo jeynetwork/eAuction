@@ -1,6 +1,9 @@
 import React from 'react';
 import { Table } from 'reactstrap';
 import "../public/css/auctions.css";
+import {connect} from "react-redux";
+import {read_Auctions} from "../actions/auctions/action";
+import img from "../public/img/abc.jpg";
 
 function AuctionsTable(props) {
   return (
@@ -14,39 +17,55 @@ function AuctionsTable(props) {
             <i className="ion-funnel" ></i>
           </form>
         </div>
-        <Table cellspacing="0">
+        <Table cellSpacing="0">
             <thead>
                 <tr>
                 <th></th>
                 <th>Date</th>
                 <th>Seller</th>
-                <th>Auction period</th>
+                <th>Auction ends</th>
                 <th>Auction Item</th>
                 <th>Auction Image</th>
                 <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                  <th scope="row">#</th>
-                  <td>01/01/2020</td>
-                  <td>Jerry mwira</td>
-                  <td>10 days</td>
-                  <td>Bycicle</td>
-                  <td>
-                    <img src="" alt="itemImage"/>
-                  </td>
-                  <td>
-                    <button>
-                      <i className="ion-eye" ></i>
-                      View auction
-                    </button>
-                  </td>
-                </tr>
+            
+                {
+                    props.allAuctions.map((auction)=>(
+                      <tr key={auction.id}>
+                        <th scope="row">#</th>
+                        <td>{auction.auctionStart}</td>
+                        <td>{auction.seller}</td>
+                        <td>{auction.auctionEnds}</td>
+                        <td>{auction.productName}</td>
+                        <td>
+                          <img src={img} alt="itemImage"/>
+                        </td>
+                        <td>
+                          <button>
+                            <i className="ion-eye" ></i>
+                            View auction
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                }
             </tbody>
         </Table>
     </div>
   );
 }
 
-export default AuctionsTable;
+const mapStateToProps = (state)=>{
+  return{
+    allAuctions:state.auctions.auctions
+  }
+}
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    readAuctions:dispatch(read_Auctions)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuctionsTable);

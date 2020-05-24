@@ -17,38 +17,37 @@ class Calendar extends Component {
     currentDay = ()=>{
         return this.state.dateObject.format("D");
     }
-   render(){
+  render(){
 
-    let weekdayshortname = this.weekdayshort.map(day => {
-        return (
+      let weekdayshortname = this.weekdayshort.map(day => {
+      return (
           <th key={day} className="week-day">
-           {day}
+            {day}
           </th>
-        );
-     });
-     
-       let blank=[];
-       for(let i=0;i<this.firstDayOfMonth();i++){
-           blank.push(
-           <td className="calendar-day empty" >{}</td>
-           )
-       }
-       
-       let daysInMonth = [];
-       for(let d=1;d<=moment(this.state.dateObject).daysInMonth();d++){
+          );
+      });
+      
+      let blank=[];
+      for(let i=0;i<this.firstDayOfMonth();i++){
+          blank.push(
+          <td className="calendar-day empty" ></td>
+          )
+      }
+      
+      let daysInMonth = [];
+      for(let d=1;d<=moment(this.state.dateObject).daysInMonth();d++){
         let currentDay = d == this.currentDay() ? "today" : "";   
         daysInMonth.push(  
             <td key={d} className={`calendar-day ${currentDay}`}>   
                 {d} 
             </td>
         )
-       }
+      }
 
-       let totalSlots = [...blank, ...daysInMonth];
-       let rows = [];
-       let cells = [];
-
-       totalSlots.forEach((row, i) => {
+      let totalSlots = [...blank, ...daysInMonth];
+      let rows = [];
+      let cells = [];
+      totalSlots.forEach((row, i) => {
         if (i % 7 !== 0) {
           cells.push(row); // if index not equal 7 that means not go to next week
         } else {
@@ -75,7 +74,7 @@ class Calendar extends Component {
           </table>
         </div>
     )
-   }
+  }
 }
 
 export default Calendar
