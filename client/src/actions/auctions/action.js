@@ -2,7 +2,7 @@ import axios from "axios";
 import {ADD_AUCTION, READ_AUCTIONS, EDIT_AUCTION, DELETE_AUCTION, AUCTIONS_LOADING} from "./types";
 
 export const add_Auction = auction=>{
-    const request = axios({method:'post',data:auction,url:'eAuction/auctions'});
+    const request = axios.post('eAuction/auctions', auction);
     return dispatch=>{
         request
             .then(res=>dispatch({
