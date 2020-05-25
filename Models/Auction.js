@@ -49,10 +49,10 @@ function validateAuction(auction) {
     seller: Joi.string().min(3).max(25).required(),
     itemName: Joi.string().min(3).max(25).required(),
     image: Joi.string().required(),
-    quantity: Joi.number().default(1).required(),
-    minPrice: Joi.number().required(),
-    auctionStart: Joi.date().required(),
-    auctionEnd: Joi.date().required(),
+    quantity: Joi.string().default(1).required(),
+    minPrice: Joi.string().required(),
+    auctionStart: Joi.string().required(),
+    auctionEnd: Joi.string().required(),
     auctionDescription: Joi.string().min(5).max(100).required(),
   };
   return Joi.validate(auction, schema);

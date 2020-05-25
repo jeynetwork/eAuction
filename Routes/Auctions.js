@@ -17,11 +17,11 @@ Router.get("/", async (req, res) => {
 });
 
 Router.post("/", async (req, res) => {
-  // const { error } = validateAuction(req.body);
-  // if (error) return res.status(400).send(error.details[0].message);
+  const { error } = validateAuction(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
   const findSeller = await Users.findById(req.body.seller);
-  if (!findSeller) return res.status(400).send("action denied");
+  // if (!findSeller) return res.status(400).send("action denied");
 
   if (findSeller.category != "SELLER")
     return res.status(400).send("action denied");
