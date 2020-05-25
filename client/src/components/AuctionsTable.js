@@ -21,11 +21,10 @@ function AuctionsTable(props) {
             <thead>
                 <tr>
                 <th></th>
-                <th>Date</th>
+                <th>Image</th>
+                <th>Item</th>
                 <th>Seller</th>
-                <th>Auction ends</th>
-                <th>Auction Item</th>
-                <th>Auction Image</th>
+                <th>Deadline</th>
                 <th>Action</th>
                 </tr>
             </thead>
@@ -34,19 +33,20 @@ function AuctionsTable(props) {
                 {
                     props.allAuctions.map((auction)=>(
                       <tr key={auction.id}>
-                        <th scope="row">#</th>
-                        <td>{auction.auctionStart}</td>
-                        <td>{auction.seller}</td>
-                        <td>{auction.auctionEnds}</td>
-                        <td>{auction.productName}</td>
+                        <th scope="row"></th>
                         <td>
                           <img src={img} alt="itemImage"/>
                         </td>
+                        <td>{auction.itemName}</td>
+                        <td>{auction.seller}</td>
+                        <td>{auction.auctionEnd}</td>
                         <td>
-                          <button>
-                            <i className="ion-eye" ></i>
-                            View auction
-                          </button>
+                          <div className="buttons">
+                            <button >
+                              <i className="ion-eye" ></i>
+                              View auction
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))

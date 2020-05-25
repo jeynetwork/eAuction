@@ -5,14 +5,14 @@ import {connect} from "react-redux";
 function NewAuction(props) {
 
     const [values, setValues] = useState({
-        id:"1",
-        seller:"",
-        productName:"",
-        minPrice:"",
-        auctionStart:"",
-        auctionEnds:"",
-        image:"",
-        description:""
+        seller:"5ecb7e370b1ed8112c275c62",
+        itemName:"gh",
+        image:"a",
+        quantity:"1",
+        minPrice:"12",
+        auctionStart:"2010-10-09T21:00:00.000+00:00",
+        auctionEnd:"2010-10-09T21:00:00.000+00:00",
+        auctionDescription:"jek"
     })
     const onChangeData = (e)=>{
         let key = e.target.id;
@@ -24,7 +24,7 @@ function NewAuction(props) {
     }
     const onSubmittedAuction=()=>{
         console.log(values);
-        props.addAuction(values);
+        add_Auction(values);
     }
     return (
         <div>
@@ -33,17 +33,17 @@ function NewAuction(props) {
             <label>Seller</label>
             <input type="text" id="seller" onChange={onChangeData} />
             <label>product Name</label>
-            <input type="text" id="productName" onChange={onChangeData} />
+            <input type="text" id="itemName" onChange={onChangeData} />
             <label>Minimum price</label>
             <input type="text" id="minPrice" onChange={onChangeData} />
             <label>Auction start</label>
             <input type="text" id="auctionStart" onChange={onChangeData} />
             <label>Auction ends</label>
-            <input type="text" id="auctionEnds" onChange={onChangeData} />
+            <input type="text" id="auctionEnd" onChange={onChangeData} />
             <label>Image</label>
             <input type="text" id="image" onChange={onChangeData} />
             <label>Description</label>
-            <input type="text" id="description" onChange={onChangeData} />
+            <input type="text" id="auctionDescription" onChange={onChangeData} />
             <div className="buttons">
                 <button type="button" onClick={onSubmittedAuction} >
                     New Auction

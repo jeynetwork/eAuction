@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   dateOfBirth: {
-    type: Date,
+    type: String,
     required: true,
   },
   password: {
@@ -63,7 +63,7 @@ function validateUser(user) {
     name: Joi.string().min(3).max(25).required(),
     email: Joi.string().required().email(),
     profile: Joi.string().required(),
-    dateOfBirth: Joi.date().required(),
+    dateOfBirth: Joi.string().required(),
     password: Joi.string().min(5).max(15),
     category: Joi.string(),
     contact: Joi.string().min(10).max(10).required(),

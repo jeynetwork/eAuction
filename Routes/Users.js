@@ -18,7 +18,7 @@ Router.get("/", async (req, res) => {
   res.send(users);
 });
 
-Router.post("/", admin, async (req, res) => {
+Router.post("/", async (req, res) => {
   const { error } = validateUser(req.body);
   if (error) {
     return res.status(400).send(error.message);

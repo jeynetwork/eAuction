@@ -16,9 +16,9 @@ Router.get("/", async (req, res) => {
   res.send(auction);
 });
 
-Router.post("/", [auth, seller], async (req, res) => {
-  const { error } = validateAuction(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+Router.post("/", async (req, res) => {
+  // const { error } = validateAuction(req.body);
+  // if (error) return res.status(400).send(error.details[0].message);
 
   const findSeller = await Users.findById(req.body.seller);
   if (!findSeller) return res.status(400).send("action denied");
@@ -64,7 +64,7 @@ Router.put("/:id", [auth, seller], async (req, res) => {
   await findAuction.save();
   res.send(findAuction);
 });
-Router.delete("/:id", [auth, seller || admin], async (req, res) => {
+Router.delete("/:id",  async (req, res) => {
   let findAuction = await Auctions.findById(req.params.id);
   if (!findAuction) return res.status(400).send("Invalid auction");
   await findAuction.delete();

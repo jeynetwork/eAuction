@@ -10,61 +10,47 @@ function AuctionsList(props) {
     //     this.props.delete_Auction(id);
     // }
     const onDeleteAuction = (id)=>{
-        props.deleteAuction(id);
+        delete_Auction(id);
     }
     return (
         <div>
-            <div className="filterDiv" >
-                <h5>Filter by Date</h5>
-                <form>
-                    <select>
-                    <option>Latest</option>
-                    </select>
-                    <i className="ion-funnel" ></i>
-                </form>
-            </div>
-            <div className="auctionList" >
-                <div className="singleAuction" >
-                <Table cellSpacing="0">
-                        <thead>
-                            <tr>
-                                <th>Seller</th>
-                                <th>Auction ends</th>
-                                <th>Item Image</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                props.allAuctions.map(auction=>(
-                                    <tr key={auction.id}>
-                                        <td>{auction.seller}</td>
-                                        <td>{auction.auctionEnds}</td>
-                                        <td>
-                                            <img src={img} alt="itemImage"/>
-                                        </td>
-                                        <td>
-                                            <div className="buttons">
-                                                <button>
-                                                    <i className="ion-android-create" ></i>
-                                                    Edit
-                                                </button>
-                                                <button className="danger" onClick={onDeleteAuction.bind(this, auction.id)}>
-                                                    <i className="ion-android-delete" ></i>
-                                                    Delete
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </Table>
-                </div>
-            </div>
+        <div className="filterDiv" >
+            <h5>Filter by Date</h5>
+            <form>
+                <select>
+                <option>Latest</option>
+                </select>
+                <i className="ion-funnel" ></i>
+            </form>
         </div>
+        <div className="auctionList" >
+                        <div className="myAuction" ></div>
+                        {
+                            props.allAuctions.map(auction=>(
+                                <div className="myAuction" key={auction._id} >
+                                    <img src={img} ></img>
+                                    <div className="detailS" >
+                                        <h6><b>Date</b> :{auction.auctionStart}</h6>
+                                        <h6><b>item</b> :{auction.itemName}</h6>
+                                        <h6><b>deadline</b> :{auction.auctionEnd}</h6>
+                                    </div>                                
+                                    <div className="buttonList">
+                                        <button>
+                                            <i className="ion-android-create" ></i>
+                                        </button>
+                                        <button className="danger" onClick={onDeleteAuction.bind(this, auction._id)}>
+                                            <i className="ion-android-delete" ></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+        </div>
+    </div>
     )
 }
+
+
 
 const mapStateToProps = (state)=>{
     return{
